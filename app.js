@@ -1,3 +1,5 @@
+require("dotenv").config();
+const dns =require("dns");
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -15,11 +17,11 @@ const flash = require("connect-flash");
 const app = express();
 const restaurantRoutes = require("./routes/restaurant.js");
 
+dns.setServers(["1.1.1.1","8.8.8.8"]);
 
 
 
-
-const MONGO_URL = "mongodb://127.0.0.1:27017/zomatoai";
+const MONGO_URL = process.env.MONGO_URL;
 
 
 // MongoDB Connection
@@ -30,10 +32,10 @@ async function main() {
 
 main()
     .then(() => {
-        console.log("Connected to MongoDB");
+        console.log("Connected to MongoDB atlas");
     })
     .catch((err) => {
-        console.log(err);
+        console.log("mongodb connection error",err);
     });
 
 
@@ -155,6 +157,6 @@ app.use( (req, res) => {
 });
 
 // Server
-app.listen(8080, () => {
-    console.log("Server is listening on port 8080");
+app.listen(process.env.PORT || 8080, () => {
+    console.log("Server is listening on port " + (process.env.PORT || 8080));
 });
