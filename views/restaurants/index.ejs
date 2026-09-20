@@ -1,0 +1,168 @@
+<% layout("layouts/boilerplate") %>
+
+<!-- HERO SECTION -->
+
+<section class="hero-section">
+
+    <div class="hero-overlay">
+
+        <h1 class="hero-logo">zomato</h1>
+
+        <h2>Discover the best food & drinks near you</h2>
+
+        <form
+    action="/restaurants"
+    method="GET"
+    class="search-box"
+>
+
+    <input
+        type="text"
+        name="search"
+        placeholder="🔍 Search for restaurant, cuisine or location"
+        value="<%= search || '' %>"
+    >
+
+    <button type="submit">
+        Search
+    </button>
+
+</form>
+
+    </div>
+
+</section>
+
+
+<!-- RESTAURANTS SECTION -->
+
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h2 class="section-title">
+                Popular Restaurants
+            </h2>
+
+            <p class="text-muted">
+                Explore the best restaurants around you
+            </p>
+            <% if (search) { %>
+
+               <p class="text-muted">
+                    Search results for:
+                     <b><%= search %></b>
+                </p>
+
+            <% } %>
+
+        </div>
+
+
+
+        <a
+            href="/restaurants/new"
+            class="btn add-btn"
+        >
+            + Add Restaurant
+        </a>
+
+    </div>
+
+
+
+    <div class="row">
+
+    <% if (allRestaurants.length === 0) { %>
+
+        <!-- AGAR RESTAURANT NAHI MILA -->
+
+        <div class="col-12 text-center">
+
+            <h4>😔 No restaurants found</h4>
+
+            <p>
+                Try searching for another restaurant or cuisine.
+            </p>
+
+            <a
+                href="/restaurants"
+                class="btn btn-danger"
+            >
+                Show All Restaurants
+            </a>
+
+        </div>
+
+
+    <% } else { %>
+
+        <!-- AGAR RESTAURANTS MIL GAYE -->
+
+        <% for (let restaurant of allRestaurants) { %>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+
+                <div class="card restaurant-card h-100">
+
+                    <img
+                        src="<%= restaurant.image %>"
+                        class="restaurant-img"
+                        alt="<%= restaurant.title %>"
+                    >
+
+                    <div class="card-body">
+
+                        <div class="d-flex justify-content-between">
+
+                            <h5 class="restaurant-name">
+                                <%= restaurant.title %>
+                            </h5>
+
+                            <span class="rating">
+                                ★ <%= restaurant.rating %>
+                            </span>
+
+                        </div>
+
+
+                        <p class="restaurant-cuisine">
+                            <%= restaurant.cuisine %>
+                        </p>
+
+
+                        <div class="restaurant-info">
+
+                            <span>
+                                📍 <%= restaurant.location %>
+                            </span>
+
+                            <span>
+                                ₹<%= restaurant.price %> for two
+                            </span>
+
+                        </div>
+
+
+                        <a
+                            href="/restaurants/<%= restaurant._id %>"
+                            class="view-btn"
+                        >
+                            View Restaurant →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        <% } %>
+
+    <% } %>
+
+</div>
+
+</div>

@@ -1,0 +1,309 @@
+/* body {
+    background-color: #f8f8f8;
+    font-family: Arial, sans-serif;
+}
+
+.zomato-logo {
+    color: #e23744 !important;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.restaurant-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.restaurant-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.show-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.rating {
+    background-color: #267e3e;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 7px;
+    height: fit-content;
+}
+
+.footer {
+    margin-top: 50px;
+    padding: 25px;
+    text-align: center;
+    background-color: white;
+    border-top: 1px solid #ddd;
+}
+
+.footer p {
+    margin: 0;
+} */
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f8f8f8;
+    font-family: Arial, sans-serif;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    background-color: white;
+    padding: 15px 0;
+}
+
+.zomato-logo {
+    color: #e23744 !important;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+
+/* ================= HERO SECTION ================= */
+
+.hero-section {
+    height: 420px;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.45)
+        ),
+        url("https://images.unsplash.com/photo-1504674900247-0877df9cc836");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.hero-overlay {
+    color: white;
+}
+
+.hero-logo {
+    font-size: 70px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hero-overlay h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+
+/* ================= SEARCH BOX ================= */
+
+.search-box {
+    display: flex;
+
+    width: 600px;
+    max-width: 90vw;
+
+    background-color: white;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.search-box input {
+    width: 100%;
+
+    border: none;
+
+    padding: 18px;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+.search-box button {
+    border: none;
+
+    background-color: #e23744;
+
+    color: white;
+
+    padding: 0 30px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+}
+
+
+/* ================= RESTAURANT SECTION ================= */
+
+.section-title {
+    font-weight: bold;
+}
+
+.add-btn {
+    background-color: #e23744;
+    color: white;
+    padding: 10px 20px;
+}
+
+.add-btn:hover {
+    background-color: #c91f2d;
+    color: white;
+}
+
+
+/* ================= RESTAURANT CARD ================= */
+
+.restaurant-card {
+    border: none;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    background-color: white;
+
+    transition: 0.3s;
+
+    cursor: pointer;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(0, 0, 0, 0.15);
+}
+
+.restaurant-img {
+    width: 100%;
+
+    height: 220px;
+
+    object-fit: cover;
+}
+
+.restaurant-name {
+    font-weight: bold;
+}
+
+.restaurant-cuisine {
+    color: gray;
+}
+
+.rating {
+    background-color: #267e3e;
+
+    color: white;
+
+    padding: 4px 8px;
+
+    border-radius: 6px;
+
+    height: fit-content;
+
+    font-size: 14px;
+}
+
+.restaurant-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #666;
+
+    font-size: 14px;
+
+    margin: 15px 0;
+}
+
+
+/* ================= VIEW BUTTON ================= */
+
+.view-btn {
+    display: inline-block;
+
+    text-decoration: none;
+
+    color: #e23744;
+
+    font-weight: bold;
+
+    margin-top: 10px;
+}
+
+.view-btn:hover {
+    color: #c91f2d;
+}
+
+
+/* ================= FOOTER ================= */
+
+.footer {
+    background-color: white;
+
+    padding: 25px;
+
+    margin-top: 50px;
+
+    text-align: center;
+
+    border-top: 1px solid #ddd;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    .hero-section {
+        height: 350px;
+    }
+
+    .hero-logo {
+        font-size: 50px;
+    }
+
+    .hero-overlay h2 {
+        font-size: 20px;
+        padding: 0 15px;
+    }
+
+    .search-box {
+        width: 90vw;
+    }
+
+    .restaurant-info {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+}
